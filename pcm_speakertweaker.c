@@ -119,6 +119,7 @@ SND_PCM_PLUGIN_DEFINE_FUNC(speakertweaker) {
 
   int fd = open(filterfile_name, O_RDONLY);
   if (fd < 0) {
+    SNDERR("Filter file not found: %s", filterfile_name);
     free(my);
     return -EIO;
   }
