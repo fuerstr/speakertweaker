@@ -7,7 +7,7 @@ SND_PCM_OBJECTS = pcm_speakertweaker.o
 SND_PCM_LIBS = -lasound
 SND_PCM_BIN = libasound_module_pcm_speakertweaker.so
 
-LIBDIR = lib/arm-linux-gnueabihf
+ALSA_LIB_DIR = $(shell pkg-config alsa --variable=libdir)/alsa-lib/
 
 .PHONY: all clean install
 
@@ -27,5 +27,5 @@ clean:
 
 install: all
 	@echo Installing...
-	@mkdir -p ${DESTDIR}/usr/$(LIBDIR)/alsa-lib/
-	@install -m 644 $(SND_PCM_BIN) ${DESTDIR}/usr/$(LIBDIR)/alsa-lib/
+	@mkdir -p $(ALSA_LIB_DIR)
+	@install -m 644 $(SND_PCM_BIN) $(ALSA_LIB_DIR)
