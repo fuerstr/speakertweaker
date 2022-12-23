@@ -66,7 +66,7 @@ speakertweaker.bin:
 | Type             | Bytes | Name          | Description                                                     |
 | ---------------- |------ | ------------- | --------------------------------------------------------------- |
 | uint32           |     4 | version       | 1                                                               |
-| uint32           |     4 | revision      | increament by 1 on each change                                  |
+| uint32           |     4 | revision      | increment by 1 on each change                                   |
 | uint32           |     4 | sampling_rate | sampling rate for which the filter coefficients were calculated |
 | uint32           |     4 | num_filters   | number of active filters                                        |
 | filterparams[16] |   192 | filter_params | 16x filter coefficients (see table below)                       |
