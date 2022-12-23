@@ -7,7 +7,7 @@ SND_PCM_OBJECTS = pcm_speakertweaker.o
 SND_PCM_LIBS = -lasound
 SND_PCM_BIN = libasound_module_pcm_speakertweaker.so
 
-ALSA_LIB_DIR = $(shell pkg-config alsa --variable=libdir)/alsa-lib/
+DESTDIR = $(shell pkg-config alsa --variable=libdir)/alsa-lib/
 
 .PHONY: all clean install
 
@@ -27,5 +27,5 @@ clean:
 
 install: all
 	@echo Installing...
-	@mkdir -p $(ALSA_LIB_DIR)
-	@install -m 644 $(SND_PCM_BIN) $(ALSA_LIB_DIR)
+	@mkdir -p $(DESTDIR)
+	@install -m 644 $(SND_PCM_BIN) $(DESTDIR)
