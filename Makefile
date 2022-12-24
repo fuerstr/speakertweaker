@@ -29,6 +29,6 @@ clean:
 install: all
 	@echo Installing...
 	@mkdir -p $(DESTDIR)
-	@install -m 644 $(SND_PCM_BIN) $(DESTDIR)
+	@install -m 755 $(SND_PCM_BIN) $(DESTDIR)
 	@mkdir -p $(FILTERDIR)
 	@cp -n ./var/lib/alsa/speakertweaker.bin $(FILTERDIR)
