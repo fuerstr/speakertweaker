@@ -8,6 +8,7 @@ SND_PCM_LIBS = -lasound
 SND_PCM_BIN = libasound_module_pcm_speakertweaker.so
 
 DESTDIR = $(shell pkg-config alsa --variable=libdir)/alsa-lib/
+FILTERDIR = "/var/lib/alsa/"
 
 .PHONY: all clean install
 
@@ -29,3 +30,5 @@ install: all
 	@echo Installing...
 	@mkdir -p $(DESTDIR)
 	@install -m 644 $(SND_PCM_BIN) $(DESTDIR)
+	@mkdir -p $(FILTERDIR)
+	@cp -n ./var/lib/alsa/speakertweaker.bin $(FILTERDIR)

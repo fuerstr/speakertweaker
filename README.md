@@ -54,14 +54,15 @@ pcm.speaker {
 - "pcm.speakertweaker" then adds the speakertweaker plugin into the audio stream.
 - I recommend to install the master volume control in the stream before the Speakertweaker plugin. This has the advantage that you have more headroom for amplify certain frequencies before this leads to clipping due to an excessive audio level. Of course this is only useful if you use a softvol volume control that is not set to the maximum value, so that the level is reduced before our plugin.
 
-### Add a filter file to your system:
-In this repo you will find a default filter file with no filter active yet. This file must be present on your system for the plugin to work. The default location is: /var/lib/alsa/speakertweaker.bin
-```
-sudo mv var/lib/alsa/speakertweaker.bin /var/lib/alsa/speakertweaker.bin
-```
+## Filter
+### Filter file:
+The filter file contains the filter coefficients to be applied by the speakertweaker. During installation a standard filter file was created without an active filter. The file is located here by default:
+/var/lib/alsa/speakertweaker.bin
 
-## Filter file structure
+Each time the file is written, the change is applied immediately if the revision is incremented (changed).
+A tool with which the filter parameters can be easily calculated and the filter file can be created/changed is already work in progress and will be linked here as soon as it is available.
 
+### File structure:
 speakertweaker.bin:
 | Type             | Bytes | Name          | Description                                                     |
 | ---------------- |------ | ------------- | --------------------------------------------------------------- |
@@ -78,10 +79,7 @@ filterparams:
 | float32 |     4 | a2   | a1 coefficient (see image below)   |
 | float32 |     4 | gain | gain coefficient (see image below) |
 
-Each time the file is written, the change is applied immediately if the revision is incremented (changed).
-A tool with which the filter parameters can be easily calculated and the filter file can be created/changed is already work in progress and will be linked here as soon as it is available.
-
-## How the filter works
+### How the filter works:
 The filter stages are designed according to the following schematic:
 
 <img src="img/filter.png" alt="filter design" style="width:400px;"/>
