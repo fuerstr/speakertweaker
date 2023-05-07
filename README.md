@@ -4,6 +4,13 @@ ALSA Plugin for tuning frequency response of your speakers.
 With this ALSA plugin you can configure up to 16 filter stages, each of which amplifies or attenuates a frequency band with adjustable width. With this you can for example improve the sound of your self-built speakers by fine tuning the frequency response.
 
 ## Install
+
+### Dependencies
+libasound2-dev
+```
+sudo apt install libasound2-dev
+```
+
 ### To compile and install the ALSA-Plugin:
 ```
 sudo make install
